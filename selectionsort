@@ -1,0 +1,37 @@
+public static ArrayList<String> sort(ArrayList<String> names, boolean mode) {
+
+        int n = names.size();
+        int j = 0;
+        
+        while (j < n) {
+            int minVal = j;
+            int i = j + 1;
+
+            while (i < n) {
+                if (mode==true){
+                if (names.get(i).compareTo(names.get(minVal)) < 0) {
+                    minVal = i;
+                }
+                i++;
+            }
+                else{
+                while (i < n) {
+                if (names.get(i).compareTo(names.get(minVal)) > 0) {
+                    minVal = i;
+                }
+                i++;
+            }
+                
+                }
+            }
+            if (minVal != j){
+            String temp = names.get(j);
+            names.set(j, names.get(minVal));
+            names.set(minVal, temp);
+            }
+            j++;
+        }
+        
+        return names;
+        
+    }
